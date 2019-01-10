@@ -4,5 +4,8 @@ import AuthApp from './auth/App'
 import 'bootstrap';
 import './common/style/common'
 
-ReactDom.render(<AuthApp />,
+ReactDom.render(
+  <div className="global">
+    <AuthApp />
+  </div>,
   document.getElementById('root'));
