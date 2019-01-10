@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
-import configureStore from '../common/configureStore';
+import configureStore from '../common/js/configureStore';
 import createRootReducer from './reducer/index';
 // import './style/app.scss';
 import LoginPage from './container/LoginPage';

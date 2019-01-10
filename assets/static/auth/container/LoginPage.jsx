@@ -13,7 +13,7 @@ class LoginPage extends Component {
     return (<form onSubmit={(e) => this.doLogin(e)}>
       <input name="account" />
       <input name="password" />
-      <button type="submit">Login</button>
+      <button className="btn btn-secondary" type="submit">Login</button>
     </form>);
   }
 }
