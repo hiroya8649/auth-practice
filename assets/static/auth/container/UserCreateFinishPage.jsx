@@ -11,6 +11,8 @@ class UserCreateFinishPage extends Component {
         <Body>
           <div className="alert alert-primary offset-sm-2 col-sm-8" role="alert">
             Your account has been created!
+            {' '}
+            <br />
             Login to your email account to check it out!
           </div>
         </Body>

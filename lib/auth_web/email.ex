@@ -39,7 +39,7 @@ defmodule AuthWeb.Email do
   def confirm_request(address, key) do
     prep_mail(address)
     |> subject("Confirm your account")
-    |> text_body("Confirm your email here http://localhost:4000/api/confirm?key=#{key}")
+    |> text_body("Confirm your email here http://localhost:4000/#/confirm?key=#{key}")
     |> Mailer.deliver_now()
   end
 

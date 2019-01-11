@@ -19,3 +19,15 @@ export function userCreate(nickname, account, password) {
       });
   };
 }
+
+export function userConfirm(key) {
+  return (dispatch) => {
+    axios.get(`/api/confirm?key=${key}`)
+      .then(() => {
+        dispatch({ type: 'USER_CONFIRM_SUCCESS' });
+      })
+      .catch(() => {
+        dispatch({ type: 'USER_CONFIRM_FAILURE' });
+      });
+  };
+}
