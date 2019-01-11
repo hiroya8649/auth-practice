@@ -2,5 +2,22 @@
   "presets": [
     "@babel/preset-react",
     "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": [
+          "javascript",
+          "css",
+          "elixir"
+        ],
+        "plugins": [
+          "line-numbers"
+        ],
+        "theme": "default",
+        "css": true
+      }
+    ]
   ]
 }
