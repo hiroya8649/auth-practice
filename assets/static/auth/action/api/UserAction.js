@@ -16,6 +16,6 @@ export function userCreate(nickname, account, password) {
     axios.post('/api/users', { user: { nickname, email: account, password } })
       .then(() => {
         dispatch(push('/'));
-      })
-  }
+      });
+  };
 }

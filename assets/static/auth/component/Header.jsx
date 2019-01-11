@@ -21,12 +21,12 @@ function Header(props) {
 }
 
 Header.defaultProps = {
-  titleStyle: ""
-}
+  titleStyle: '',
+};
 
 Header.propTypes = {
   titleStyle: PropTypes.string,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Header;

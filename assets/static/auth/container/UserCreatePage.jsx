@@ -22,21 +22,21 @@ class UserCreatePage extends Component {
               <div className="form-group">
                 <label htmlFor="nickname" className="col-sm-12">
                   Nickname
-                    <input className="form-control col-sm-12" name="nickname" id="nickname" />
+                  <input className="form-control col-sm-12" name="nickname" id="nickname" />
                 </label>
               </div>
 
               <div className="form-group">
                 <label htmlFor="account" className="col-sm-12">
                   Email
-                    <input className="form-control col-sm-12" type="email" name="account" id="account" />
+                  <input className="form-control col-sm-12" type="email" name="account" id="account" />
                 </label>
               </div>
 
               <div className="form-group">
                 <label htmlFor="password" className="col-sm-12">
                   Password
-                    <input className="form-control col-sm-12" type="password" id="password" name="password" />
+                  <input className="form-control col-sm-12" type="password" id="password" name="password" />
                 </label>
               </div>
               <div className="form-group col-sm-12">
@@ -55,7 +55,7 @@ UserCreatePage.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  doCreate: (nickname, account, password) => dispatch(userCreate(nickname, account, password))
+  doCreate: (nickname, account, password) => dispatch(userCreate(nickname, account, password)),
 });
 
 export default connect(null, mapDispatchToProps)(UserCreatePage);

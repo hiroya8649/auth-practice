@@ -22,18 +22,21 @@ class UserLoginPage extends Component {
               <div className="form-group">
                 <label htmlFor="account" className="col-sm-12">
                   Email
-                    <input className="col-sm-12 form-control" type="email" name="account" id="account" />
+                  <input className="col-sm-12 form-control" type="email" name="account" id="account" />
                 </label>
               </div>
 
               <div className="form-group">
                 <label htmlFor="password" className="col-sm-12">
                   Password
-                    <input className="col-sm-12 form-control" type="password" id="password" name="password" />
+                  <input className="col-sm-12 form-control" type="password" id="password" name="password" />
                 </label>
               </div>
+
               <div className="form-group col-sm-12">
-                <a className="user-create-link" href="/#/signup">Actually this site don't need 'users' but I just want you to try. :)</a>
+                <a className="user-create-link" href="/#/signup">
+                  {'Actually this site don\'t need \'users\' but I just want you to try. :)'}
+                </a>
               </div>
               <div className="form-group col-sm-12">
                 <button className="btn btn-primary col-sm-3 user-login-button" type="submit">Login</button>
