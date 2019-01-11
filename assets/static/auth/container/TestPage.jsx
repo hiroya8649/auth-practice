@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Prism from 'prismjs';
 import Header from '../component/Header';
 import Body from '../component/Body';
-import Prism from 'prismjs';
 
 class TestPage extends Component {
   componentDidMount() {
