@@ -10,5 +10,13 @@
   &.main-body {
     height: 100vh;
   }
+  &.main-navbar {
+    padding: 0;
+    .git-icon {
+      height: 2.5rem;
+      width: 2.5rem;
+      border-radius: 50%;
+    }
+  }
 }
 

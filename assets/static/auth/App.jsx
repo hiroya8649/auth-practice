@@ -9,6 +9,7 @@ import UserLoginPage from './container/UserLoginPage';
 import UserCreatePage from './container/UserCreatePage';
 import UserCreateFinishPage from './container/UserCreateFinishPage';
 import TestPage from './container/TestPage';
+import AboutMePage from './container/AboutMePage';
 
 const [store, history] = configureStore(createRootReducer);
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/signup" component={UserCreatePage} />
             <Route path="/signup/finished" component={UserCreateFinishPage} />
             <Route path="/test" component={TestPage} />
+            <Route path="/about_me" component={AboutMePage} />
           </Switch>
         </ConnectedRouter>
       </Provider>
