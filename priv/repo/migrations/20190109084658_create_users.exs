@@ -3,6 +3,7 @@ defmodule Auth.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
+      add(:nickname, :string)
       add(:email, :string)
       add(:password_hash, :string)
       add(:confirmed_at, :utc_datetime)

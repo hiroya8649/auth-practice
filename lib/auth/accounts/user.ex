@@ -6,6 +6,7 @@ defmodule Auth.Accounts.User do
   alias Auth.Sessions.Session
 
   schema "users" do
+    field(:nickname, :string)
     field(:email, :string)
     field(:password, :string, virtual: true)
     field(:password_hash, :string)
@@ -25,8 +26,8 @@ defmodule Auth.Accounts.User do
 
   def create_changeset(%__MODULE__{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :password])
-    |> validate_required([:email, :password])
+    |> cast(attrs, [:nickname, :email, :password])
+    |> validate_required([:nickname, :email, :password])
     |> unique_email
     |> validate_password(:password)
     |> put_pass_hash
