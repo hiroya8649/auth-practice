@@ -1,6 +1,14 @@
 
-.main-body {
+.main {
   padding: 2rem 1.5rem 0rem 1.5rem;
   background-color: #45464d;
-  height: 100vh;
+  &.main-header {
+    .main-header-title {
+      font-size: 40px;
+    }
+  }
+  &.main-body {
+    height: 100vh;
+  }
 }
+

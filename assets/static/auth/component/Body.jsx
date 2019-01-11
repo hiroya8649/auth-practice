@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Body(props) {
   return (
-    <div className="main-body">
+    <div className={`main main-body ${props.className ? props.className : ""}`}>
       {props.children}
     </div>
   );

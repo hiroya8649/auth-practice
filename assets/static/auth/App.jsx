@@ -5,7 +5,8 @@ import { Route, Switch } from 'react-router';
 import configureStore from '../common/js/configureStore';
 import createRootReducer from './reducer/index';
 import './style/app.scss';
-import LoginPage from './container/LoginPage';
+import UserLoginPage from './container/UserLoginPage';
+import UserCreatePage from './container/UserCreatePage';
 
 const [store, history] = configureStore(createRootReducer);
 
@@ -15,7 +16,8 @@ class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" component={LoginPage} />
+            <Route exact path="/" component={UserLoginPage} />
+            <Route path="/signup" component={UserCreatePage} />
           </Switch>
         </ConnectedRouter>
       </Provider>

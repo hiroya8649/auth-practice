@@ -10,3 +10,12 @@ export function userLogin(account, password) {
       });
   };
 }
+
+export function userCreate(nickname, account, password) {
+  return (dispatch) => {
+    axios.post('/api/users', { user: { nickname, email: account, password } })
+      .then(() => {
+        dispatch(push('/'));
+      })
+  }
+}
