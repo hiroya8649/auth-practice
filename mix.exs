@@ -45,7 +45,8 @@ defmodule Auth.MixProject do
       {:phauxth, "~> 2.0.0"},
       {:argon2_elixir, "~> 1.3"},
       {:bamboo, "~> 1.1"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:httpoison, "~> 1.5"}
     ]
   end
 

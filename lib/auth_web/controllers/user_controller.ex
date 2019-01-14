@@ -5,6 +5,7 @@ defmodule AuthWeb.UserController do
 
   alias Phauxth.Log
   alias Auth.Accounts
+  alias Auth.Recaptcha
   alias AuthWeb.{Auth.Token, Email}
 
   action_fallback AuthWeb.FallbackController
@@ -18,9 +19,12 @@ defmodule AuthWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
-  def create(conn, %{"user" => %{"email" => email} = user_params}) do
+  def create(conn, %{"user" => %{"email" => email, "recaptcha_token" => recaptcha_token} = user_params}) do
     key = Token.sign(%{"email" => email})
-    with {:ok, user} <- Accounts.create_user(user_params) do
+    with \
+      {:ok, %{"success"=> true}} <- Recaptcha.validate_token(recaptcha_token),
+      {:ok, user} <- Accounts.create_user(user_params)
+    do
       Log.info(%Log{user: user.id, message: "user created"})
       Email.confirm_request(email, key)
       conn

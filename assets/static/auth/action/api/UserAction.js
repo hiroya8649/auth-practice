@@ -11,9 +11,13 @@ export function userLogin(account, password) {
   };
 }
 
-export function userCreate(nickname, account, password) {
+export function userCreate(nickname, account, password, recaptchaToken) {
   return (dispatch) => {
-    axios.post('/api/users', { user: { nickname, email: account, password } })
+    axios.post('/api/users', {
+      user: {
+        nickname, email: account, password, recaptcha_token: recaptchaToken,
+      },
+    })
       .then(() => {
         dispatch(push('/signup/finished'));
       });

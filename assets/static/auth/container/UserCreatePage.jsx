@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3';
 import { userCreate } from '../action/api/UserAction';
 import Header from '../component/Header';
 import Body from '../component/Body';
 
+const recaptchaSiteKey = '6LfTf4kUAAAAAHxVrnCGVa0LgCMtHQJVF8DTOrmI';
+
 class UserCreatePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: '',
+    };
+  }
+
+  componentDidMount() {
+    loadReCaptcha(recaptchaSiteKey);
+  }
+
+  verifyCallback(token) {
+    this.setState({ token });
+  }
+
   doLogin(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
-    this.props.doCreate(formData.get('nickname'), formData.get('account'), formData.get('password'));
+    this.props.doCreate(formData.get('nickname'), formData.get('account'), formData.get('password'), this.state.token);
   }
 
   render() {
@@ -42,6 +60,10 @@ class UserCreatePage extends Component {
               <div className="form-group col-sm-12">
                 <button className="btn btn-primary col-sm-3" type="submit">Go!</button>
               </div>
+              <ReCaptcha
+                verifyCallback={token => this.verifyCallback(token)}
+                sitekey={recaptchaSiteKey}
+              />
             </form>
           </div>
         </Body>
@@ -55,7 +77,13 @@ UserCreatePage.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  doCreate: (nickname, account, password) => dispatch(userCreate(nickname, account, password)),
+  doCreate:
+    (
+      nickname,
+      account,
+      password,
+      recaptchaToken,
+    ) => dispatch(userCreate(nickname, account, password, recaptchaToken)),
 });
 
 export default connect(null, mapDispatchToProps)(UserCreatePage);
