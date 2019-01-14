@@ -11,6 +11,7 @@ import UserCreateFinishPage from './container/UserCreateFinishPage';
 import TestPage from './container/TestPage';
 import AboutMePage from './container/AboutMePage';
 import UserComfirmPage from './container/UserComfirmPage';
+import UserPassResetPage from './container/UserPassResetPage';
 
 const [store, history] = configureStore(createRootReducer);
 
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path="/confirm" component={UserComfirmPage} />
             <Route path="/test" component={TestPage} />
             <Route path="/about_me" component={AboutMePage} />
+            <Route pate="pass_reset" component={UserPassResetPage} />
           </Switch>
         </ConnectedRouter>
       </Provider>

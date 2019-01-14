@@ -78,7 +78,7 @@ defmodule Auth.Accounts do
   def create_password_reset(attrs) do
     with %User{} = user <- get_by(attrs) do
       user
-      |> User.password_reset_changeset(DateTime.utc_now() |> DateTime.truncate(:second))
+      |> User.password_reset_timestamp_changeset(DateTime.utc_now() |> DateTime.truncate(:second))
       |> Repo.update()
     end
   end
@@ -88,10 +88,9 @@ defmodule Auth.Accounts do
   """
   def update_password(%User{} = user, attrs) do
     Sessions.delete_user_sessions(user)
-
     user
-    |> User.create_changeset(attrs)
-    |> User.password_reset_changeset(nil)
+    |> User.password_reset_timestamp_changeset(nil)
+    |> User.password_reset_changeset(attrs)
     |> Repo.update()
   end
 end

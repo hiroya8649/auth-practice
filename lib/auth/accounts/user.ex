@@ -37,7 +37,15 @@ defmodule Auth.Accounts.User do
     change(user, %{confirmed_at: DateTime.utc_now() |> DateTime.truncate(:second)})
   end
 
-  def password_reset_changeset(user, reset_sent_at) do
+  def password_reset_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:password])
+    |> validate_required([:password])
+    |> validate_password(:password)
+    |> put_pass_hash
+  end
+
+  def password_reset_timestamp_changeset(user, reset_sent_at) do
     change(user, %{reset_sent_at: reset_sent_at})
   end
 

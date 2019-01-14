@@ -15,7 +15,7 @@ class UserConfirmPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Email confirm" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Email confirmed" titleStyle="offset-sm-2 col-sm-10" />
         <Body>
           {
             this.props.confirmed

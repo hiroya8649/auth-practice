@@ -31,3 +31,16 @@ export function userConfirm(key) {
       });
   };
 }
+
+export function userPassReset(key, password) {
+  return (dispatch) => {
+    console.log(password);
+    axios.put('/api/password_resets/update', { password_reset: { key, password } })
+      .then(() => {
+        dispatch({ type: 'USER_PASS_RESET_SUCCESS' });
+      })
+      .catch(() => {
+        dispatch({ type: 'USER_PASS_RESET_FAILURE' });
+      });
+  };
+}
