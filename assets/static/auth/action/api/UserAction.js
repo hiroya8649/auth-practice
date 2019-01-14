@@ -32,12 +32,25 @@ export function userConfirm(key) {
   };
 }
 
+export function userPassResetRequest(email) {
+  return (dispatch) => {
+    axios.post('/api/password_resets', { password_reset: { email } })
+      .then(() => {
+        dispatch({ type: 'USER_PASS_RESET_REQUEST_SUCCESS' });
+        dispatch(push('/pass_reset_sent'));
+      })
+      .catch(() => {
+        dispatch({ type: 'USER_PASS_RESET_REQUEST_FAILURE' });
+      });
+  };
+}
+
 export function userPassReset(key, password) {
   return (dispatch) => {
-    console.log(password);
     axios.put('/api/password_resets/update', { password_reset: { key, password } })
       .then(() => {
         dispatch({ type: 'USER_PASS_RESET_SUCCESS' });
+        dispatch(push('/pass_reset_success'));
       })
       .catch(() => {
         dispatch({ type: 'USER_PASS_RESET_FAILURE' });

@@ -37,6 +37,10 @@ class UserLoginPage extends Component {
                 <a className="user-create-link" href="/#/signup">
                   {'Actually this site don\'t need \'users\' but I just want you to try. :)'}
                 </a>
+                <br />
+                <a className="user-create-link" href="/#/forget_password">
+                  {'Or do you forget your password?'}
+                </a>
               </div>
               <div className="form-group col-sm-12">
                 <button className="btn btn-primary col-sm-3 user-login-button" type="submit">Login</button>

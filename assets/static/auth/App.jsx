@@ -12,6 +12,9 @@ import TestPage from './container/TestPage';
 import AboutMePage from './container/AboutMePage';
 import UserComfirmPage from './container/UserComfirmPage';
 import UserPassResetPage from './container/UserPassResetPage';
+import UserPassResetSuccessPage from './container/UserPassResetSuccessPage';
+import UserPassResetRequestPage from './container/UserPassResetRequestPage';
+import UserPassResetSentPage from './container/UserPassResetSentPage';
 
 const [store, history] = configureStore(createRootReducer);
 
@@ -27,7 +30,10 @@ class App extends Component {
             <Route path="/confirm" component={UserComfirmPage} />
             <Route path="/test" component={TestPage} />
             <Route path="/about_me" component={AboutMePage} />
-            <Route pate="pass_reset" component={UserPassResetPage} />
+            <Route path="/forget_password" component={UserPassResetRequestPage} />
+            <Route path="/pass_reset" component={UserPassResetPage} />
+            <Route path="/pass_reset_sent" component={UserPassResetSentPage} />
+            <Route path="/pass_reset_success" component={UserPassResetSuccessPage} />
           </Switch>
         </ConnectedRouter>
       </Provider>
