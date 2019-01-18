@@ -22,7 +22,7 @@ defmodule Auth.Accounts do
 
   This is used by Phauxth to get user information.
   """
-  def get_by(%{"session_id" => session_id}) do
+  def get_by(%{session_id: session_id}) do
     with %Session{user_id: user_id} <- Sessions.get_session(session_id),
          do: get_user(user_id)
   end

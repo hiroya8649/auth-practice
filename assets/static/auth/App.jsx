@@ -15,6 +15,7 @@ import UserPassResetPage from './container/UserPassResetPage';
 import UserPassResetSuccessPage from './container/UserPassResetSuccessPage';
 import UserPassResetRequestPage from './container/UserPassResetRequestPage';
 import UserPassResetSentPage from './container/UserPassResetSentPage';
+import ArticleCreatePage from './container/ArticleCreatePage';
 
 const [store, history] = configureStore(createRootReducer);
 
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path="/pass_reset" component={UserPassResetPage} />
             <Route path="/pass_reset_sent" component={UserPassResetSentPage} />
             <Route path="/pass_reset_success" component={UserPassResetSuccessPage} />
+            <Route path="/article" component={ArticleCreatePage} />
           </Switch>
         </ConnectedRouter>
       </Provider>

@@ -8,7 +8,7 @@ const authInitialState = {
 function auth(state = authInitialState, action) {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return { ...state, auth: action.payload };
+      return { ...state, accessToken: action.payload.access_token };
     case 'USER_CONFIRM_SUCCESS':
       return { ...state, confirmed: true };
     default:
