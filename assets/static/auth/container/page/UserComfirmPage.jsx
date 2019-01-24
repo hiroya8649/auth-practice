@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import QueryString from 'query-string';
-import Header from '../component/Header';
-import Body from '../component/Body';
-import { userConfirm } from '../action/api/UserAction';
+import Header from '../../component/Header';
+import Body from '../../component/Body';
+import { userConfirm } from '../../action/api/UserAction';
 
 class UserConfirmPage extends Component {
   componentWillMount() {
@@ -15,7 +15,7 @@ class UserConfirmPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Email confirmed" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Email confirmed" className="offset-sm-2 col-sm-10" />
         <Body>
           {
             this.props.confirmed

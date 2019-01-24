@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3';
-import { userCreate } from '../action/api/UserAction';
-import Header from '../component/Header';
-import Body from '../component/Body';
+import { userCreate } from '../../action/api/UserAction';
+import Header from '../../component/Header';
+import Body from '../../component/Body';
 
 const recaptchaSiteKey = '6LfTf4kUAAAAAHxVrnCGVa0LgCMtHQJVF8DTOrmI';
 
@@ -33,7 +33,7 @@ class UserCreatePage extends Component {
   render() {
     return (
       <div>
-        <Header title="Create your account!" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Create your account!" className="offset-sm-2 col-sm-10" />
         <Body>
           <div className="row">
             <form className="offset-sm-2 col-sm-8" onSubmit={e => this.doLogin(e)}>

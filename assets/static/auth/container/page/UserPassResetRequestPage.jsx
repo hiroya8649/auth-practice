@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { userPassResetRequest } from '../action/api/UserAction';
-import Header from '../component/Header';
-import Body from '../component/Body';
+import { userPassResetRequest } from '../../action/api/UserAction';
+import Header from '../../component/Header';
+import Body from '../../component/Body';
 
 class UserPassResetRequestPage extends Component {
   doResetRequest(e) {
@@ -15,7 +15,7 @@ class UserPassResetRequestPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Forget password" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Forget password" className="offset-sm-2 col-sm-10" />
         <Body>
           <div className="row">
             <form className="offset-sm-2 col-sm-8" onSubmit={e => this.doResetRequest(e)}>

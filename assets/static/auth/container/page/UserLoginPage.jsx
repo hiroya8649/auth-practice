@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { userLogin } from '../action/api/UserAction';
-import Header from '../component/Header';
-import Body from '../component/Body';
+import { userLogin } from '../../action/api/UserAction';
+import Header from '../../component/Header';
+import Body from '../../component/Body';
 
 class UserLoginPage extends Component {
   doLogin(e) {
@@ -15,7 +15,7 @@ class UserLoginPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Hey! Try login!" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Hey! Try login!" className="offset-sm-2 col-sm-10" />
         <Body>
           <div className="row">
             <form className="offset-sm-2 col-sm-8" onSubmit={e => this.doLogin(e)}>

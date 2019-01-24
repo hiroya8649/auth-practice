@@ -26,7 +26,8 @@
     "react/prefer-stateless-function": 0,
     "prefer-promise-reject-errors": 0,
     "jsx-a11y/label-has-for": 0,
-    "no-console": 0
+    "no-console": 0,
+    "no-multi-str": 0
   },
   "settings": {
     "import/resolver": {

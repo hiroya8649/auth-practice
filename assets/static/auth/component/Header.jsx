@@ -7,18 +7,18 @@ function Header(props) {
     <div>
       <Navbar />
       <div className="main main-header">
-        <div className={`main-header-title ${props.titleStyle}`}>{props.title}</div>
+        <div className={`main-header-title ${props.className}`}>{props.title}</div>
       </div>
     </div>
   );
 }
 
 Header.defaultProps = {
-  titleStyle: '',
+  className: '',
 };
 
 Header.propTypes = {
-  titleStyle: PropTypes.string,
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 

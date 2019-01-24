@@ -5,17 +5,17 @@ import { Route, Switch } from 'react-router';
 import configureStore from '../common/js/configureStore';
 import createRootReducer from './reducer/index';
 import './style/app.scss';
-import UserLoginPage from './container/UserLoginPage';
-import UserCreatePage from './container/UserCreatePage';
-import UserCreateFinishPage from './container/UserCreateFinishPage';
-import TestPage from './container/TestPage';
-import AboutMePage from './container/AboutMePage';
-import UserComfirmPage from './container/UserComfirmPage';
-import UserPassResetPage from './container/UserPassResetPage';
-import UserPassResetSuccessPage from './container/UserPassResetSuccessPage';
-import UserPassResetRequestPage from './container/UserPassResetRequestPage';
-import UserPassResetSentPage from './container/UserPassResetSentPage';
-import ArticleCreatePage from './container/ArticleCreatePage';
+import UserLoginPage from './container/page/UserLoginPage';
+import UserCreatePage from './container/page/UserCreatePage';
+import UserCreateFinishPage from './container/page/UserCreateFinishPage';
+import TestPage from './container/page/TestPage';
+import AboutMePage from './container/page/AboutMePage';
+import UserComfirmPage from './container/page/UserComfirmPage';
+import UserPassResetPage from './container/page/UserPassResetPage';
+import UserPassResetSuccessPage from './container/page/UserPassResetSuccessPage';
+import UserPassResetRequestPage from './container/page/UserPassResetRequestPage';
+import UserPassResetSentPage from './container/page/UserPassResetSentPage';
+import ArticleCreatePage from './container/page/ArticleCreatePage';
 
 const [store, history] = configureStore(createRootReducer);
 

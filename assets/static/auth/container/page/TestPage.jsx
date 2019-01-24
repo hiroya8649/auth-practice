@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Prism from 'prismjs';
-import Header from '../component/Header';
-import Body from '../component/Body';
+import Header from '../../component/Header';
+import Body from '../../component/Body';
 
 class TestPage extends Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class TestPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Test!" titleStyle="offset-sm-2 col-sm-10" />
+        <Header title="Test!" className="offset-sm-2 col-sm-10" />
         <Body>
           <pre>
             <code className="line-numbers language-elixir">
