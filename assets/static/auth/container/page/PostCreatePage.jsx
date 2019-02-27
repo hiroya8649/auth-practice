@@ -17,9 +17,12 @@ defmodule Your.Code do\n\
   IO.puts 'Hello world!'\n\
 end\n\
 ```\n\
+```unknown\n\
+Set type as unknown if highlight didn't work!\n\
+```\n\
 ";
 
-class ArticleCreatePage extends Component {
+class PostCreatePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,7 +91,7 @@ class ArticleCreatePage extends Component {
   }
 }
 
-ArticleCreatePage.propTypes = {
+PostCreatePage.propTypes = {
   doArticleCreate: PropTypes.func.isRequired,
 };
 
@@ -96,4 +99,4 @@ const mapDispatchToProps = dispatch => ({
   doArticleCreate: content => dispatch(articleCreate(content)),
 });
 
-export default connect(null, mapDispatchToProps)(ArticleCreatePage);
+export default connect(null, mapDispatchToProps)(PostCreatePage);

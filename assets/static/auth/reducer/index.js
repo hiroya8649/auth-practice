@@ -16,7 +16,17 @@ function auth(state = authInitialState, action) {
   }
 }
 
+function post(state = { posts: [] }, action) {
+  switch (action.type) {
+    case 'POST_FETCH_ALL_SUCCESS':
+      return { ...state, posts: action.payload.data };
+    default:
+      return state;
+  }
+}
+
 export default history => combineReducers({
   router: connectRouter(history),
   auth,
+  post,
 });
