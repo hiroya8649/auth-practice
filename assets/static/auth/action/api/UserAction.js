@@ -6,7 +6,7 @@ export function userLogin(account, password) {
     axios.post('/api/sessions', { session: { email: account, password } })
       .then(({ data }) => {
         dispatch({ type: 'LOGIN_SUCCESS', payload: data });
-        dispatch(push('/article'));
+        dispatch(push('/posts'));
       });
   };
 }

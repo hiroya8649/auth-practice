@@ -3,7 +3,7 @@ defmodule Auth.Repo.Migrations.CreateArticles do
 
   def change do
     create table(:articles) do
-      add :content, :string
+      add :content, :text
       add :author, references(:users, on_delete: :nothing)
 
       timestamps()
@@ -11,4 +11,5 @@ defmodule Auth.Repo.Migrations.CreateArticles do
 
     create index(:articles, [:author])
   end
+
 end
