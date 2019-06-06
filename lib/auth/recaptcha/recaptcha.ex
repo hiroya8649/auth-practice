@@ -6,7 +6,8 @@ defmodule Auth.Recaptcha do
 
   def validate_token(token) do
     params = [secret: @private_key, response: token]
+    inspect(@private_key)
     {:ok, %{body: body}} = HTTPoison.post(@url, "{}", [{"Accept", "application/json"}], [ params: params, ssl: [{:versions, [:'tlsv1.2']}] ])
-    Jason.decode(body)
+    inspect(Jason.decode(body))
   end
 end
