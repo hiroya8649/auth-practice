@@ -4,6 +4,7 @@ defmodule AuthWeb.FallbackController do
 
   See `Phoenix.Controller.action_fallback/1` for more details.
   """
+  require Logger
 
   use AuthWeb, :controller
 
@@ -19,5 +20,13 @@ defmodule AuthWeb.FallbackController do
     |> put_status(:not_found)
     |> put_view(AuthWeb.ErrorView)
     |> render(:"404")
+  end
+
+  def call(conn, other) do
+    Logger.warn(other)
+    conn
+    |> put_status(:internal_server_error)
+    |> put_view(AuthWeb.ErrorView)
+    |> render(:"500")
   end
 end
