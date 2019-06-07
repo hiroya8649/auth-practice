@@ -24,10 +24,6 @@ config :phauxth,
   crypto_module: Comeonin.Argon2,
   token_module: AuthWeb.Auth.Token
 
-# Mailer configuration
-config :auth, AuthWeb.Mailer,
-  adapter: Bamboo.LocalAdapter
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

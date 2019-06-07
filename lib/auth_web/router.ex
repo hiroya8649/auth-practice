@@ -15,7 +15,9 @@ defmodule AuthWeb.Router do
     plug Phauxth.AuthenticateToken
   end
 
-  forward "/sent_emails", Bamboo.SentEmailViewerPlug
+  if Mix.env == :dev do
+    forward "/sent_emails", Bamboo.SentEmailViewerPlug
+  end
 
   scope "/", AuthWeb do
     pipe_through :browser

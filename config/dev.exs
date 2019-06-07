@@ -73,3 +73,17 @@ config :auth, Auth.Repo,
   database: "auth_dev",
   hostname: "localhost",
   pool_size: 10
+
+
+# Mailer configuration
+config :auth, AuthWeb.Mailer,
+  adapter: Bamboo.LocalAdapter
+
+# config :auth, AuthWeb.Mailer,
+#   adapter: Bamboo.SesAdapter,
+#   ex_aws: [region: "us-east-1"]
+
+# config :ex_aws,
+#   access_key_id: System.get_env("AuthIAMUserAccessKey"),
+#   secret_access_key: System.get_env("AuthIAMUserSecretAccessKey")  
+
