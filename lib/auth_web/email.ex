@@ -37,9 +37,15 @@ defmodule AuthWeb.Email do
   An email with a confirmation link in it.
   """
   def confirm_request(address, key) do
+    text = if Mix.env == :dev do
+      "Confirm your email here http://localhost:4000/#/confirm?key=#{key}"
+    else
+      "Confirm your email here http://frozen-retreat-49737.herokuapp.com/#/confirm?key=#{key}"
+    end
+
     prep_mail(address)
     |> subject("Confirm your account")
-    |> text_body("Confirm your email here http://localhost:4000/#/confirm?key=#{key}")
+    |> text_body(text)
     |> Mailer.deliver_now()
   end
 
