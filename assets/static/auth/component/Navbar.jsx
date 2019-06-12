@@ -16,7 +16,7 @@ function Navbar() {
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
               <a className="dropdown-item" href="#/post">Create a post</a>
               <a className="dropdown-item" href="#/posts">View posts</a>
-              <a className="dropdown-item" href="/sent_emails">Virtual emails</a>
+              {process.env.NODE_ENV === 'production' ? null : <a className="dropdown-item" href="/sent_emails">Virtual emails</a>}
             </div>
           </div>
           <div className="navbar-nav ml-auto">

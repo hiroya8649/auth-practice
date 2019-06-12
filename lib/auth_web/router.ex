@@ -16,11 +16,7 @@ defmodule AuthWeb.Router do
   end
 
   if Mix.env == :dev do
-    # If using Phoenix
     forward "/sent_emails", Bamboo.SentEmailViewerPlug
-
-    # If using Plug.Router, make sure to add the `to`
-    # forward "/sent_emails", to: Bamboo.SentEmailViewerPlug
   end
 
   scope "/", AuthWeb do

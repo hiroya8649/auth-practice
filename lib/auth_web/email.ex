@@ -37,9 +37,15 @@ defmodule AuthWeb.Email do
   An email with a confirmation link in it.
   """
   def confirm_request(address, key) do
+    text = if Mix.env == :dev do
+      "Confirm your email here http://localhost:4000/#/confirm?key=#{key}"
+    else
+      "Confirm your email here http://frozen-retreat-49737.herokuapp.com/#/confirm?key=#{key}"
+    end
+
     prep_mail(address)
     |> subject("Confirm your account")
-    |> text_body("Confirm your email here http://localhost:4000/#/confirm?key=#{key}")
+    |> text_body(text)
     |> Mailer.deliver_now()
   end
 
@@ -55,11 +61,14 @@ defmodule AuthWeb.Email do
     |> Mailer.deliver_now()
   end
   def reset_request(address, key) do
+    text = if Mix.env == :dev do
+      "Reset your password at http://localhost:4000/#/pass_reset?key=#{key}"
+    else
+      "Reset your password at http://frozen-retreat-49737.herokuapp.com/#/pass_reset?key=#{key}"
+    end
     prep_mail(address)
     |> subject("Reset your password")
-    |> text_body(
-        "Reset your password at http://localhost:4000/#/pass_reset?key=#{key}"
-      )
+    |> text_body(text)
     |> Mailer.deliver_now()
   end
 
@@ -86,6 +95,6 @@ defmodule AuthWeb.Email do
   defp prep_mail(address) do
     new_email()
     |> to(address)
-    |> from("admin@example.com")
+    |> from("1loya4wk@gmail.com")
   end
 end
