@@ -8,6 +8,7 @@ const authInitialState = {
 function auth(state = authInitialState, action) {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
+      localStorage.setItem('access_token', action.payload.access_token);
       return { ...state, accessToken: action.payload.access_token };
     case 'USER_CONFIRM_SUCCESS':
       return { ...state, confirmed: true };

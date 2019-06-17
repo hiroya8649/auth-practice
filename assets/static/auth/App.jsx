@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
-import configureStore from '../common/js/configureStore';
-import createRootReducer from './reducer/index';
+import store from '@/common/js/store';
 import './style/app.scss';
 import UserLoginPage from './container/page/UserLoginPage';
 import UserCreatePage from './container/page/UserCreatePage';
@@ -17,14 +16,14 @@ import UserPassResetRequestPage from './container/page/UserPassResetRequestPage'
 import UserPassResetSentPage from './container/page/UserPassResetSentPage';
 import PostCreatePage from './container/page/PostCreatePage';
 import PostListPage from './container/page/PostListPage';
+import PrivateRoute from '@/component/PrivateRoute';
 
-const [store, history] = configureStore(createRootReducer);
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
+      <Provider store={store.store}>
+        <ConnectedRouter history={store.history}>
           <Switch>
             <Route exact path="/" component={UserLoginPage} />
             <Route exact path="/signup" component={UserCreatePage} />
@@ -36,7 +35,7 @@ class App extends Component {
             <Route path="/pass_reset" component={UserPassResetPage} />
             <Route path="/pass_reset_sent" component={UserPassResetSentPage} />
             <Route path="/pass_reset_success" component={UserPassResetSuccessPage} />
-            <Route path="/post" component={PostCreatePage} />
+            <PrivateRoute path="/post" component={PostCreatePage} />
             <Route path="/posts" component={PostListPage} />
           </Switch>
         </ConnectedRouter>
