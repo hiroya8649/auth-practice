@@ -33,6 +33,9 @@ module.exports = () => ({
     ],
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './static/auth'),
+    },
     extensions: ['.js', '.jsx', '.sass', '.scss'],
   },
   plugins: [
