@@ -35,7 +35,7 @@ class PostListPage extends Component {
       <div className="article-list-page">
         <Header title="User posts" className="col-sm-12" />
         <Body>
-          {this.props.posts.map((post) => (
+          {this.props.posts.map(post => (
             <Post className="offset-sm-2 col-sm-8 post" key={post.id} source={post.content} />
           ))}
         </Body>
@@ -51,7 +51,7 @@ PostListPage.propTypes = {
 
 const mapStateToProps = state => ({
   posts: state.post.posts,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   doPostFetchAll: () => dispatch(postList()),

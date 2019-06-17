@@ -1,4 +1,13 @@
-{
+const path = require('path');
+
+module.exports = {
+  "settings": {
+    'import/resolver': {
+      "alias": [
+          ['@', './static/auth']
+      ]
+    }
+  },
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
@@ -27,13 +36,7 @@
     "prefer-promise-reject-errors": 0,
     "jsx-a11y/label-has-for": 0,
     "no-console": 0,
-    "no-multi-str": 0
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./webpack.config.js"
-      }
-    }
+    "no-multi-str": 0,
+    "import/no-unresolved": 0
   }
-}
+};
