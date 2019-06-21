@@ -6,7 +6,7 @@ export function userLogin(account, password) {
     axios.post('/api/sessions', { session: { email: account, password } })
       .then(({ data }) => {
         dispatch({ type: 'LOGIN_SUCCESS', payload: data });
-        dispatch(push('/posts'));
+        dispatch(push('/page/posts/view'));
       });
   };
 }
@@ -20,7 +20,7 @@ export function userCreate(nickname, account, password, recaptchaToken) {
       recaptcha_token: recaptchaToken,
     })
       .then(() => {
-        dispatch(push('/signup/finished'));
+        dispatch(push('page/accounts/signup_finished'));
       });
   };
 }
@@ -42,7 +42,7 @@ export function userPassResetRequest(email) {
     axios.post('/api/password_resets', { password_reset: { email } })
       .then(() => {
         dispatch({ type: 'USER_PASS_RESET_REQUEST_SUCCESS' });
-        dispatch(push('/pass_reset_sent'));
+        dispatch(push('/page/accounts/pass_reset_sent'));
       })
       .catch(() => {
         dispatch({ type: 'USER_PASS_RESET_REQUEST_FAILURE' });
@@ -55,7 +55,7 @@ export function userPassReset(key, password) {
     axios.put('/api/password_resets/update', { password_reset: { key, password } })
       .then(() => {
         dispatch({ type: 'USER_PASS_RESET_SUCCESS' });
-        dispatch(push('/pass_reset_success'));
+        dispatch(push('/page/accounts/pass_reset_success'));
       })
       .catch(() => {
         dispatch({ type: 'USER_PASS_RESET_FAILURE' });

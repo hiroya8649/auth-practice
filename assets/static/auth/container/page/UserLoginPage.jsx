@@ -12,6 +12,11 @@ class UserLoginPage extends Component {
     this.props.doLogin(formData.get('account'), formData.get('password'));
   }
 
+  goCreate(e) {
+    e.preventDefault();
+    this.props.history.push('/page/accounts/signup');
+  }
+
   render() {
     return (
       <div>
@@ -34,11 +39,25 @@ class UserLoginPage extends Component {
               </div>
 
               <div className="form-group col-sm-12">
-                <a className="user-create-link" href="/#/signup">
+                <a
+                  className="user-create-link"
+                  href="/#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.props.history.push('/page/accounts/signup');
+                  }}
+                >
                   {'Actually this site don\'t need \'users\' but I just want you to try. :)'}
                 </a>
                 <br />
-                <a className="user-create-link" href="/#/forget_password">
+                <a
+                  className="user-create-link"
+                  href="/#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this.props.history.push('/page/accounts/forget_password');
+                  }}
+                >
                   {'Or do you forget your password?'}
                 </a>
               </div>
@@ -55,6 +74,7 @@ class UserLoginPage extends Component {
 
 UserLoginPage.propTypes = {
   doLogin: PropTypes.func.isRequired,
+  history: PropTypes.any.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

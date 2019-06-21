@@ -1,10 +1,23 @@
 import React from 'react';
+import NavbarDropdownItem from '@/component/NavbarDropdownItem';
+import history from '@/common/js/history';
 
 function Navbar() {
   return (
     <div className="main main-navbar">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">Home</a>
+        <a
+          className="navbar-brand"
+          href="/#"
+          onClick={
+            (e) => {
+              e.preventDefault();
+              history.push('/');
+            }
+          }
+        >
+          Home
+        </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
@@ -14,9 +27,18 @@ function Navbar() {
               Guest&apos;s posts
             </div>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#/post">Create a post</a>
-              <a className="dropdown-item" href="#/posts">View posts</a>
-              {process.env.NODE_ENV === 'production' ? null : <a className="dropdown-item" href="/sent_emails">Virtual emails</a>}
+              <NavbarDropdownItem to="/page/posts/create" text="Create a post" />
+              <NavbarDropdownItem to="/page/posts/view" text="View posts" />
+              {
+                process.env.NODE_ENV === 'production'
+                  ? null
+                  : (
+                    <NavbarDropdownItem
+                      to="/sent_emails"
+                      text="Virtual emails"
+                    />
+                  )
+              }
             </div>
           </div>
           <div className="navbar-nav ml-auto">

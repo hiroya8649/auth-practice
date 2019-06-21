@@ -38,9 +38,9 @@ defmodule AuthWeb.Email do
   """
   def confirm_request(address, key) do
     text = if Mix.env == :dev do
-      "Confirm your email here http://localhost:4000/#/confirm?key=#{key}"
+      "Confirm your email here http://localhost:4000/page/accounts/confirm?key=#{key}"
     else
-      "Confirm your email here http://frozen-retreat-49737.herokuapp.com/#/confirm?key=#{key}"
+      "Confirm your email here http://frozen-retreat-49737.herokuapp.com/page/accounts/confirm?key=#{key}"
     end
 
     prep_mail(address)
@@ -62,9 +62,9 @@ defmodule AuthWeb.Email do
   end
   def reset_request(address, key) do
     text = if Mix.env == :dev do
-      "Reset your password at http://localhost:4000/#/pass_reset?key=#{key}"
+      "Reset your password at http://localhost:4000/page/accounts/pass_reset?key=#{key}"
     else
-      "Reset your password at http://frozen-retreat-49737.herokuapp.com/#/pass_reset?key=#{key}"
+      "Reset your password at http://frozen-retreat-49737.herokuapp.com/page/accounts/pass_reset?key=#{key}"
     end
     prep_mail(address)
     |> subject("Reset your password")

@@ -26,17 +26,17 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={UserLoginPage} />
-            <Route exact path="/signup" component={UserCreatePage} />
-            <Route path="/signup/finished" component={UserCreateFinishPage} />
-            <Route path="/confirm" component={UserComfirmPage} />
-            <Route path="/test" component={TestPage} />
-            <Route path="/about_me" component={AboutMePage} />
-            <Route path="/forget_password" component={UserPassResetRequestPage} />
-            <Route path="/pass_reset" component={UserPassResetPage} />
-            <Route path="/pass_reset_sent" component={UserPassResetSentPage} />
-            <Route path="/pass_reset_success" component={UserPassResetSuccessPage} />
-            <PrivateRoute path="/post" component={PostCreatePage} />
-            <Route path="/posts" component={PostListPage} />
+            <Route path="/page/accounts/signup" component={UserCreatePage} />
+            <Route path="/page/accounts/signup_finished" component={UserCreateFinishPage} />
+            <Route path="/page/accounts/confirm" component={UserComfirmPage} />
+            <Route path="/page/accounts/forget_password" component={UserPassResetRequestPage} />
+            <Route path="/page/accounts/pass_reset" component={UserPassResetPage} />
+            <Route path="/page/accounts/pass_reset_sent" component={UserPassResetSentPage} />
+            <Route path="/page/accounts/pass_reset_success" component={UserPassResetSuccessPage} />
+            <Route path="/page/test" component={TestPage} />
+            <Route path="/page/about_me" component={AboutMePage} />
+            <Route path="/page/posts/view" component={PostListPage} />
+            <PrivateRoute path="/page/posts/create" component={PostCreatePage} />
           </Switch>
         </ConnectedRouter>
       </Provider>

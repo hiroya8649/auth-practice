@@ -23,6 +23,8 @@ defmodule AuthWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/page/:context", PageController, :index
+    get "/page/:context/:action", PageController, :index
   end
 
   scope "/api", AuthWeb do
