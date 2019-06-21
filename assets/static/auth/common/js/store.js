@@ -1,8 +1,8 @@
 import { routerMiddleware } from 'connected-react-router';
-import { createHashHistory } from 'history';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import history from '@/common/js/history';
 import createRootReducer from '@/reducer/index';
 // import { clearError } from '../action/ErrorAction';
 
@@ -13,7 +13,6 @@ import createRootReducer from '@/reducer/index';
 // }
 
 function configureStore() {
-  const history = createHashHistory();
   /* eslint-disable-next-line no-underscore-dangle */
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
@@ -25,9 +24,9 @@ function configureStore() {
     )),
   );
   // clearErrorOnPageMove(store);
-  return [store, history];
+  return store;
 }
 
-const [store, history] = configureStore();
+const store = configureStore();
 
-export default { store, history };
+export default store;

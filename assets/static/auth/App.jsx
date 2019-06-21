@@ -3,6 +3,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import store from '@/common/js/store';
+import history from '@/common/js/history';
 import './style/app.scss';
 import UserLoginPage from './container/page/UserLoginPage';
 import UserCreatePage from './container/page/UserCreatePage';
@@ -18,12 +19,11 @@ import PostCreatePage from './container/page/PostCreatePage';
 import PostListPage from './container/page/PostListPage';
 import PrivateRoute from '@/component/PrivateRoute';
 
-
 class App extends Component {
   render() {
     return (
-      <Provider store={store.store}>
-        <ConnectedRouter history={store.history}>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={UserLoginPage} />
             <Route exact path="/signup" component={UserCreatePage} />
