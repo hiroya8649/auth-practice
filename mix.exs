@@ -47,7 +47,9 @@ defmodule Auth.MixProject do
       {:bamboo, "~> 1.1"},
       {:bamboo_ses, ">= 0.1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:httpoison, "~> 1.5"}
+      {:httpoison, "~> 1.5"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},  
     ]
   end
 

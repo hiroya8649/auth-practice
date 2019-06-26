@@ -35,3 +35,11 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :ex_aws,
+  access_key_id: System.get_env("AuthIAMUserAccessKey"),
+  secret_access_key: System.get_env("AuthIAMUserSecretAccessKey")  
+
+config :ex_aws, :s3,
+  region: "ap-northeast-1",
+  host: "s3.ap-northeast-1.amazonaws.com"

@@ -79,8 +79,3 @@ import_config "prod.secret.exs"
 config :auth, AuthWeb.Mailer,
   adapter: Bamboo.SesAdapter,
   ex_aws: [region: "us-east-1"]
-
-config :ex_aws,
-  access_key_id: System.get_env("AuthIAMUserAccessKey"),
-  secret_access_key: System.get_env("AuthIAMUserSecretAccessKey")  
-
