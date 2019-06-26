@@ -15,4 +15,8 @@ defmodule AuthWeb.ProfileImageView do
       file_name: profile_image.file_name,
       content_length: profile_image.content_length}
   end
+
+  def render("url.json", %{url: url}) do
+    %{url: url}
+  end
 end

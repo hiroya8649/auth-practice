@@ -138,9 +138,12 @@ defmodule Auth.Accounts do
 
   """
   def create_profile_image(attrs \\ %{}) do
-    %ProfileImage{}
-    |> ProfileImage.changeset(attrs)
-    |> Repo.insert()
+    profile_image = %ProfileImage{}
+    |> ProfileImage.create_changeset(attrs)
+    with {:ok, _} <- Repo.insert(profile_image)
+    do
+      ProfileImage.create_put_url(profile_image)
+    end
   end
 
   @doc """

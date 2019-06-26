@@ -12,11 +12,13 @@ defmodule AuthWeb.ProfileImageController do
   end
 
   def create(conn, %{"profile_image" => profile_image_params}) do
-    with {:ok, %ProfileImage{} = profile_image} <- Accounts.create_profile_image(profile_image_params) do
+    with {:ok, url} <- Accounts.create_profile_image(profile_image_params) do
+      IO.puts("url")
+      IO.inspect(url)
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.profile_image_path(conn, :show, profile_image))
-      |> render("show.json", profile_image: profile_image)
+      # |> put_resp_header("location", Routes.profile_image_path(conn, :show, profile_image))
+      |> render("url.json", url: url)
     end
   end
 
