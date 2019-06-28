@@ -49,7 +49,7 @@ defmodule Auth.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.5"},
       {:ex_aws, "~> 2.1"},
-      {:ex_aws_s3, "~> 2.0"},  
+      {:ex_aws_s3, path: "lib/ex_aws_s3"},  
     ]
   end
 

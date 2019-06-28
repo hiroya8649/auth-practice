@@ -44,7 +44,8 @@ defmodule Auth.Accounts.ProfileImage do
     |> S3.presigned_url(
       :put,
       @bucket_name,
-      @path_prefix <> profile_image.changes.file_name
+      @path_prefix <> profile_image.changes.file_name,
+      [headers: ["content-length": profile_image.changes.content_length]]
     )
   end
 end
