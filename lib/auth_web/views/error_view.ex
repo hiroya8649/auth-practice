@@ -13,4 +13,10 @@ defmodule AuthWeb.ErrorView do
   def template_not_found(template, _assigns) do
     Phoenix.Controller.status_message_from_template(template)
   end
+
+  def render("error_with_msg.json", %{msg: msg}) do
+    %{
+      msg: msg
+    }
+  end
 end

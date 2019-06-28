@@ -138,12 +138,14 @@ defmodule Auth.Accounts do
 
   """
   def create_profile_image(attrs \\ %{}) do
-    profile_image = %ProfileImage{}
-    |> ProfileImage.create_changeset(attrs)
-
-    {:ok, url} = ProfileImage.create_put_url(profile_image)
+    with profile_image = %{valid?: true} <- %ProfileImage{} |> ProfileImage.create_changeset(attrs),
+      {:ok, url} = ProfileImage.create_put_url(profile_image)
+    do 
+      %{:url => url, :name => profile_image.changes.file_name }
+    else
+      _ -> {:error, "create_profile_image fail"}
+    end
     
-    %{:url => url, :name => profile_image.changes.file_name }
   end
 
   @doc """

@@ -22,6 +22,13 @@ defmodule AuthWeb.FallbackController do
     |> render(:"404")
   end
 
+  def call(conn, {:error_with_msg, %{msg: msg, status: status}}) do
+    conn
+    |> put_status(status)
+    |> put_view(AuthWeb.ErrorView)
+    |> render("error_with_msg.json", msg: msg)
+  end
+
   def call(conn, other) do
     Logger.warn(other)
     conn

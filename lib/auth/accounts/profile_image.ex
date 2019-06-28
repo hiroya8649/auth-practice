@@ -7,6 +7,7 @@ defmodule Auth.Accounts.ProfileImage do
   @type_ext_map %{"image/jpeg" => ".jpg", "image/png" => ".png", "image/gif" => ".gif"}
   @bucket_name "authpractice"
   @path_prefix "profile_images/"
+  @content_length_limit 15_728_640
 
   schema "profile_images" do
     field :content_length, :integer
@@ -22,10 +23,11 @@ defmodule Auth.Accounts.ProfileImage do
     |> cast(attrs, [:mime_type, :content_length, :user_id])
     |> validate_required([:mime_type, :content_length, :user_id])
     |> validate_inclusion(:mime_type, @valid_type)
+    |> validate_number(:content_length, less_than: @content_length_limit)
     |> create_file_name()
   end
 
-  defp create_file_name(profile_image) do
+  def create_file_name(profile_image) do
     time = DateTime.utc_now() |> DateTime.to_string()
     file_name = Integer.to_string(profile_image.changes.user_id) <> "_" <> time <> @type_ext_map[profile_image.changes.mime_type]
     profile_image
