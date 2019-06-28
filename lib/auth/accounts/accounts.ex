@@ -138,9 +138,12 @@ defmodule Auth.Accounts do
 
   """
   def create_profile_image(attrs \\ %{}) do
-    %ProfileImage{}
+    profile_image = %ProfileImage{}
     |> ProfileImage.create_changeset(attrs)
-    |> ProfileImage.create_put_url()
+
+    {:ok, url} = ProfileImage.create_put_url(profile_image)
+    
+    %{:url => url, :name => profile_image.changes.file_name }
   end
 
   @doc """

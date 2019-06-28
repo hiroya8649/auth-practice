@@ -25,7 +25,7 @@ defmodule Auth.Accounts.ProfileImage do
     |> create_file_name()
   end
 
-  def create_file_name(profile_image) do
+  defp create_file_name(profile_image) do
     time = DateTime.utc_now() |> DateTime.to_string()
     file_name = Integer.to_string(profile_image.changes.user_id) <> "_" <> time <> @type_ext_map[profile_image.changes.mime_type]
     profile_image
