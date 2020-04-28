@@ -20,7 +20,7 @@ export function userCreate(nickname, account, password, recaptchaToken) {
       recaptcha_token: recaptchaToken,
     })
       .then(() => {
-        dispatch(push('page/accounts/signup_finished'));
+        dispatch(push('/page/accounts/signup_finished'));
       });
   };
 }

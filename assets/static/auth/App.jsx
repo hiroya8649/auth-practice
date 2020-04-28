@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router';
 import store from '@/common/js/store';
 import history from '@/common/js/history';
 import './style/app.scss';
+import PrivateRoute from '@/component/PrivateRoute';
 import UserLoginPage from './container/page/UserLoginPage';
 import UserCreatePage from './container/page/UserCreatePage';
 import UserCreateFinishPage from './container/page/UserCreateFinishPage';
@@ -17,7 +18,6 @@ import UserPassResetRequestPage from './container/page/UserPassResetRequestPage'
 import UserPassResetSentPage from './container/page/UserPassResetSentPage';
 import PostCreatePage from './container/page/PostCreatePage';
 import PostListPage from './container/page/PostListPage';
-import PrivateRoute from '@/component/PrivateRoute';
 
 class App extends Component {
   render() {

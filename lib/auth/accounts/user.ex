@@ -4,6 +4,7 @@ defmodule Auth.Accounts.User do
   import Ecto.Changeset
 
   alias Auth.Sessions.Session
+  alias Auth.Posts.Article
 
   schema "users" do
     field(:nickname, :string)
@@ -13,6 +14,7 @@ defmodule Auth.Accounts.User do
     field(:confirmed_at, :utc_datetime)
     field(:reset_sent_at, :utc_datetime)
     has_many(:sessions, Session, on_delete: :delete_all)
+    many_to_many(:articles_lgtm, Article, join_through: Auth.Relation.LGTM.Article, on_replace: :delete)
 
     timestamps()
   end

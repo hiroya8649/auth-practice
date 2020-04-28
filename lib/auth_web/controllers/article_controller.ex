@@ -8,7 +8,7 @@ defmodule AuthWeb.ArticleController do
 
   action_fallback AuthWeb.FallbackController
 
-  plug :user_check when action in [:create]
+  plug :user_check when action in [:create, :lgtm]
 
   def index(conn, _params) do
     articles = Posts.list_articles()
@@ -34,6 +34,13 @@ defmodule AuthWeb.ArticleController do
     article = Posts.get_article!(id)
 
     with {:ok, %Article{} = article} <- Posts.update_article(article, article_params) do
+      render(conn, "show.json", article: article)
+    end
+  end
+
+  def lgtm(%{assigns: %{current_user: user}} = conn, %{"id" => id}) do
+    article = Posts.get_article!(id)
+    with {:ok, %Article{} = article} <- Posts.lgtm_article(article, user) do
       render(conn, "show.json", article: article)
     end
   end

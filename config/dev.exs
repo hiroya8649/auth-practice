@@ -68,16 +68,14 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :auth, Auth.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "hao",
+  password: "9999",
   database: "auth_dev",
   hostname: "localhost",
   pool_size: 10
 
-
 # Mailer configuration
-config :auth, AuthWeb.Mailer,
-  adapter: Bamboo.LocalAdapter
+config :auth, AuthWeb.Mailer, adapter: Bamboo.LocalAdapter
 
 # config :auth, AuthWeb.Mailer,
 #   adapter: Bamboo.SesAdapter,

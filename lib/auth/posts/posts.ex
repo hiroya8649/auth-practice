@@ -101,4 +101,11 @@ defmodule Auth.Posts do
   def change_article(%Article{} = article) do
     Article.changeset(article, %{})
   end
+
+  def lgtm_article(%Article{} = article, user) do
+    article
+    |> Repo.preload(:lgtm)
+    |> Article.changeset_lgtm(user)
+    |> Repo.update()
+  end
 end

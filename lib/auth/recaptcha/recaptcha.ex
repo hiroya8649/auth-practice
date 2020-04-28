@@ -5,8 +5,15 @@ defmodule Auth.Recaptcha do
   @url "https://www.google.com/recaptcha/api/siteverify"
 
   def validate_token(token) do
+    IO.inspect(@private_key)
     params = [secret: @private_key, response: token]
-    {:ok, %{body: body}} = HTTPoison.post(@url, "{}", [{"Accept", "application/json"}], [ params: params, ssl: [{:versions, [:'tlsv1.2']}] ])
+
+    {:ok, %{body: body}} =
+      HTTPoison.post(@url, "{}", [{"Accept", "application/json"}],
+        params: params,
+        ssl: [{:versions, [:"tlsv1.2"]}]
+      )
+
     Jason.decode(body)
   end
 end

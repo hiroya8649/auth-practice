@@ -32,6 +32,7 @@ defmodule AuthWeb.Router do
 
     post "/sessions", SessionController, :create
     resources "/users", UserController, except: [:new, :edit]
+    post "/article/lgtm", ArticleController, :lgtm
     resources "/articles", ArticleController, except: [:new, :edit]
     resources "/profile_images", ProfileImageController, except: [:new, :edit]
     get "/confirm", ConfirmController, :index

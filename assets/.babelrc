@@ -1,20 +1,30 @@
 {
-  "presets": [
-    "@babel/preset-react",
-    "@babel/preset-env"
-  ],
+  "presets": ["@babel/preset-react", "@babel/preset-env"],
   "plugins": [
     [
       "prismjs",
       {
         "languages": [
+          "sql",
           "javascript",
+          "typescript",
           "css",
-          "elixir"
+          "sass",
+          "scss",
+          "elixir",
+          "erlang",
+          "markup",
+          "java",
+          "jsx",
+          "tsx",
+          "bash",
+          "shell",
+          "clike",
+          "ruby",
+          "python",
+          "php"
         ],
-        "plugins": [
-          "line-numbers"
-        ],
+        "plugins": ["line-numbers"],
         "theme": "tomorrow",
         "css": true
       }

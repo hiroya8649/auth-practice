@@ -58,7 +58,7 @@ class UserLoginPage extends Component {
                     this.props.history.push('/page/accounts/forget_password');
                   }}
                 >
-                  {'Or do you forget your password?'}
+                  Or do you forget your password?
                 </a>
               </div>
               <div className="form-group col-sm-12">
