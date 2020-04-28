@@ -20,7 +20,7 @@ class UserLoginPage extends Component {
   render() {
     return (
       <div>
-        <Header title="Hey! Try login!" className="offset-sm-2 col-sm-10" />
+        <Header title="User login" className="offset-sm-2 col-sm-10" />
         <Body>
           <div className="row">
             <form className="offset-sm-2 col-sm-8" onSubmit={e => this.doLogin(e)}>
@@ -47,7 +47,7 @@ class UserLoginPage extends Component {
                     this.props.history.push('/page/accounts/signup');
                   }}
                 >
-                  {'Actually this site don\'t need \'users\' but I just want you to try. :)'}
+                  Sign up
                 </a>
                 <br />
                 <a

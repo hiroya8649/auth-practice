@@ -16,6 +16,14 @@ function Navbar() {
         >
           Kiita
         </a>
+
+        <div className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <a className="nav-link active" href="/page/accounts/login">Login</a>
+          </li>
+        </div>
+
+
         <button
           className="navbar-toggler"
           type="button"
@@ -28,7 +36,7 @@ function Navbar() {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <div className="nav-item dropdown">
+          {/* <div className="nav-item dropdown">
             <div
               className="nav-link dropdown-toggle"
               id="navbarDropdown"
@@ -49,23 +57,45 @@ function Navbar() {
                 <NavbarDropdownItem to="/sent_emails" text="Virtual emails" />
               )}
             </div>
-          </div>
+          </div> */}
+
           <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                href="https://github.com/hiroya8649/auth-practice"
-                data-toggle="tooltip"
-                title="About this project"
-              >
-                <img
-                  className="git-icon"
-                  alt="git project"
-                  src="http://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                />
-              </a>
-            </li>
+            <div className="row">
+              <div className="col-sm">
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="/page/login"
+                    style={{
+                      height: '100%', justifyContent: 'center', alignItems: 'center', display: 'flex',
+                    }}
+                  >
+                    {' '}
+                    Login
+                  </a>
+                </li>
+              </div>
+              <div className="col-sm">
+                <li className="nav-item">
+                  <a
+                    className="nav-link"
+                    href="https://github.com/hiroya8649/auth-practice"
+                    data-toggle="tooltip"
+                    title="About this project"
+                  >
+                    <img
+                      className="git-icon"
+                      alt="git project"
+                      src="http://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                    />
+                  </a>
+                </li>
+              </div>
+            </div>
+
+
           </div>
+
         </div>
       </nav>
     </div>

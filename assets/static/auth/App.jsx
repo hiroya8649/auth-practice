@@ -25,7 +25,7 @@ class App extends Component {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" component={UserLoginPage} />
+            <Route exact path="/" component={PostListPage} />
             <Route path="/page/accounts/signup" component={UserCreatePage} />
             <Route path="/page/accounts/signup_finished" component={UserCreateFinishPage} />
             <Route path="/page/accounts/confirm" component={UserComfirmPage} />
@@ -33,9 +33,9 @@ class App extends Component {
             <Route path="/page/accounts/pass_reset" component={UserPassResetPage} />
             <Route path="/page/accounts/pass_reset_sent" component={UserPassResetSentPage} />
             <Route path="/page/accounts/pass_reset_success" component={UserPassResetSuccessPage} />
+            <Route path="/page/accounts/login" component={UserLoginPage} />
             <Route path="/page/test" component={TestPage} />
             <Route path="/page/about_me" component={AboutMePage} />
-            <Route path="/page/posts/view" component={PostListPage} />
             <PrivateRoute path="/page/posts/create" component={PostCreatePage} />
           </Switch>
         </ConnectedRouter>
